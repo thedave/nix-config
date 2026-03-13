@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap"; # Removes anything Homebrew installed that isn't listed here
@@ -9,6 +7,7 @@
 
     brews = [
       "dockutil"
+      "alejandra"
     ];
 
     casks = [

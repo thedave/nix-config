@@ -13,8 +13,12 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager }: {
-
+  outputs = {
+    self,
+    darwin,
+    nixpkgs,
+    home-manager,
+  }: {
     # macOS configuraiton
     darwinConfigurations = {
       "macbox" = darwin.lib.darwinSystem {
@@ -24,7 +28,8 @@
           ./modules/core.nix
           ./modules/homebrew.nix
 
-          home-manager.darwinModules.home-manager {
+          home-manager.darwinModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 

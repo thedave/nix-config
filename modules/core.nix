@@ -1,13 +1,11 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     git
     tmux
     curl
   ];
 
-  environment.systemPath = [ "/opt/homebrew/bin" ];
+  environment.systemPath = ["/opt/homebrew/bin"];
 
   users.users."david" = {
     name = "david";
@@ -16,7 +14,7 @@
 
   launchd.user.agents.amphetamine-startup = {
     serviceConfig = {
-      ProgramArguments = [ "/usr/bin/open" "-a" "Amphetamine" ];
+      ProgramArguments = ["/usr/bin/open" "-a" "Amphetamine"];
       RunAtLoad = true;
       KeepAlive = false;
     };
@@ -24,7 +22,7 @@
 
   launchd.user.agents.moom-startup = {
     serviceConfig = {
-      ProgramArguments = [ "/usr/bin/open" "-a" "Moom Classic" ];
+      ProgramArguments = ["/usr/bin/open" "-a" "Moom Classic"];
       RunAtLoad = true;
       KeepAlive = false;
     };

@@ -1,31 +1,32 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager requires this to know which version it is running
   home.stateVersion = "25.11";
-
 
   # ── Packages ─────────────────────────────────────────────────────────────────
   home.packages = with pkgs; [
     # Shell utilities (previously brew formulae)
-    bat           # better cat
-    fd            # better find
-    jq            # JSON processor
-    ripgrep       # better grep
-    wget          # HTTP downloader
+    bat # better cat
+    fd # better find
+    jq # JSON processor
+    ripgrep # better grep
+    wget # HTTP downloader
 
     # Version control
-    gh            # GitHub CLI
+    gh # GitHub CLI
 
     # Databases
     duckdb
 
     # JVM / Scala
-    jdk           # OpenJDK (latest LTS)
+    jdk # OpenJDK (latest LTS)
 
     # Node.js  (replaces brew node + nvm for global tooling)
-    nodejs_22     # matches your previous nvm v22.14.0
-    pnpm          # fast package manager
+    nodejs_22 # matches your previous nvm v22.14.0
+    pnpm # fast package manager
 
     # Python (one canonical version; use per-project flakes for 3.9/3.12)
     python314
@@ -34,7 +35,7 @@
     rustup
 
     # Misc dev tools
-    hashcat       # password auditing
+    hashcat # password auditing
   ];
 
   # ── Git ───────────────────────────────────────────────────────────────────────
@@ -76,17 +77,17 @@
     historySubstringSearch = {
       enable = true;
       # Arrow keys search history by typed prefix
-      searchUpKey = [ "^[[A" "^P" ];
-      searchDownKey = [ "^[[B" "^N" ];
+      searchUpKey = ["^[[A" "^P"];
+      searchDownKey = ["^[[B" "^N"];
     };
 
     shellAliases = {
-      ll   = "ls -lah";
-      g    = "git";
-      cat  = "bat";
+      ll = "ls -lah";
+      g = "git";
+      cat = "bat";
       find = "fd";
       grep = "rg";
-      cd   = "z";   # zoxide — smarter directory jumping
+      cd = "z"; # zoxide — smarter directory jumping
 
       # Nix Aliases
       rebuild = "sudo darwin-rebuild switch --flake ~/.config/nix#$(scutil --get LocalHostName)";
@@ -123,7 +124,7 @@
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
-    nix-direnv.enable = true;  # caches nix develop shells for instant reload
+    nix-direnv.enable = true; # caches nix develop shells for instant reload
   };
 
   # ── linearmouse ──────────────────────────────────────────────────────────────
