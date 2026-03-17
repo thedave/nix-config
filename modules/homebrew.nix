@@ -8,6 +8,8 @@
     brews = [
       "dockutil"
       "alejandra"
+      "gemini-cli"
+      "googleworkspace-cli"
     ];
 
     casks = [
@@ -32,9 +34,13 @@
 
       # DevTools
       "proxyman"
+      "gcloud-cli"
 
       # Config
       "linearmouse"
+
+      # Window Manager
+      "nikitabobko/tap/aerospace"
 
       # Vibe Code
       "claude-code"

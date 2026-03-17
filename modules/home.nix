@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  user,
   ...
 }: {
   # Home Manager requires this to know which version it is running
@@ -54,6 +55,7 @@
     ignores = [
       ".DS_Store"
       ".direnv"
+      "result"
     ];
   };
 
@@ -91,11 +93,13 @@
 
       # Nix Aliases
       rebuild = "sudo darwin-rebuild switch --flake ~/.config/nix#$(scutil --get LocalHostName)";
-      update = "nix flake update ~/.config/nix && rebuild";
+      update = "nix flake update --flake path:$HOME/.config/nix && rebuild";
     };
 
     # Anything that doesn't have a dedicated home-manager option
     initContent = ''
+      export DIRENV_LOG_FORMAT=""
+
       # Completions
       autoload -Uz compinit && compinit
 
@@ -126,6 +130,12 @@
     enableZshIntegration = true;
     nix-direnv.enable = true; # caches nix develop shells for instant reload
   };
+
+  # Disable direnv logging statements. TODO: need to check if there are any errors
+  xdg.configFile."direnv/direnv.toml".text = ''
+    [global]
+    log_format = ""
+  '';
 
   # ── linearmouse ──────────────────────────────────────────────────────────────
 

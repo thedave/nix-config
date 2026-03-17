@@ -18,7 +18,10 @@
     darwin,
     nixpkgs,
     home-manager,
-  }: {
+  }: let
+    # Set this once here
+    user = "david";
+  in {
     # macOS configuraiton
     darwinConfigurations = {
       "macbox" = darwin.lib.darwinSystem {
@@ -32,8 +35,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            home-manager.users."david" = import ./modules/home.nix;
+            home-manager.extraSpecialArgs = {inherit user;};
+            home-manager.users.${user} = import ./modules/home.nix;
           }
         ];
       };
