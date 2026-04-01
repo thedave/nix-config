@@ -5,6 +5,10 @@
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
 
+    taps = [
+      "nikitabobko/tap"
+    ];
+
     brews = [
       "dockutil"
       "alejandra"
@@ -32,15 +36,18 @@
       "raycast"
       "zotero"
 
+      # Devices
+      "logi-options+"
       # DevTools
       "proxyman"
       "gcloud-cli"
+      "devutils"
 
       # Config
       "linearmouse"
 
       # Window Manager
-      "nikitabobko/tap/aerospace"
+      "aerospace"
 
       # Vibe Code
       "claude-code"
