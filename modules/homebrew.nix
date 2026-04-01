@@ -38,6 +38,7 @@
 
       # Devices
       "logi-options+"
+
       # DevTools
       "proxyman"
       "gcloud-cli"
