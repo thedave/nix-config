@@ -3,6 +3,7 @@
     git
     tmux
     curl
+    pkgs.uv
   ];
 
   environment.systemPath = ["/opt/homebrew/bin"];
